@@ -1,0 +1,20 @@
+version: '3'
+
+services:
+  keydb:
+    image: eqalpha/keydb
+    restart: unless-stopped
+    ports:
+      - "6379:6379"
+
+  postgresql:
+    image: postgres:15
+    restart: unless-stopped
+
+    environment:
+      POSTGRES_PASSWORD: root
+      POSTGRES_USER: root
+      POSTGRES_DB: eludris
+
+    ports:
+      - "5432:5432"
